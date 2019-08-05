@@ -72,3 +72,30 @@ function singleNumber(nums) {
     }
   }
 }
+
+function isHappy(n) {
+    let array = n.toString().split("").map(Number)
+    let answer = []
+
+    for (let i = 0; i < array.length; i++) {
+        let square = array[i] ** 2
+        answer.push(square)
+    }
+    let sum = answer.reduce((a, b) => a + b, 0)
+   console.log(sum)
+    if (sum == 1 || sum == 7) {
+      return true
+    }  else if (sum < 10) {
+      return false
+    } else {
+      return isHappy(sum)
+    }
+}
+
+// const numbers = [4,1,2,1,2]
+// const string = "abcabcbb"
+// const n = 9
+// firstDuplicate(numbers)
+// firstPair(numbers, 18)
+// lengthOfLongestSubstring(string)
+// isHappy(n)
