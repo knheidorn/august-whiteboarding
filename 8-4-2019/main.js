@@ -13,3 +13,19 @@ function firstDuplicate(array) {
    return "No duplicates"
 
 }
+
+function firstPair(array, number) {
+  let hashTable = {}
+  let answer = []
+
+  for (let i = 0; i < array.length; i++) {
+    let difference = number - array[i]
+    if (hashTable[difference]) {
+      answer.push(array[i], difference)
+      return answer
+    } else {
+      hashTable[array[i]] = i
+    }
+  }
+  return "No pairs add to the number"
+}
