@@ -29,3 +29,25 @@ function firstPair(array, number) {
   }
   return "No pairs add to the number"
 }
+
+function lengthOfLongestSubstring(s) {
+  let array = s.split("")
+  let hashTable = {}
+  let sample = ""
+  let max = 0
+
+  for (let i = 0; i < array.length; i++) {
+    let character = array[i]
+    if (hashTable[character]) {
+      if (sample.length > max) {
+        max = sample.length
+        sample = ""
+        hashTable = {}
+      }
+    } else {
+      hashTable[character] = i
+      sample += character
+    }
+  }
+  return max
+}
