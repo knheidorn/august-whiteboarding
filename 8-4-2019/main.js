@@ -82,7 +82,7 @@ function isHappy(n) {
         answer.push(square)
     }
     let sum = answer.reduce((a, b) => a + b, 0)
-   console.log(sum)
+
     if (sum == 1 || sum == 7) {
       return true
     }  else if (sum < 10) {
