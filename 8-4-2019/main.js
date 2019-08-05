@@ -51,3 +51,24 @@ function lengthOfLongestSubstring(s) {
   }
   return max
 }
+
+function singleNumber(nums) {
+  let table = {}
+
+  for (let i = 0; i < nums.length; i++) {
+    if (table[nums[i]]) {
+      let value = table[nums[i]]
+      table[nums[i]] = value + 1
+    } else {
+      table[nums[i]] = 1
+    }
+  }
+
+  let entries = Object.entries(table)
+  let length = entries.length
+  for (let j = 0; j < length; j++) {
+    if (entries[j][1] == 1) {
+      return parseInt(entries[j][0])
+    }
+  }
+}
